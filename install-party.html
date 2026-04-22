@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@grassi:~/install-party</title>
+    <style>
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body { 
+            background: var(--os-bg); 
+            color: white; 
+            font-family: 'Ubuntu Mono', 'Cascadia Code', monospace; 
+            padding: 10px; /* Ridotto per mobile */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .window { 
+            background: var(--terminal-black); 
+            border: 1px solid #333; 
+            padding: 20px; /* Padding dinamico */
+            width: 100%;
+            max-width: 850px; 
+            margin: 20px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            box-sizing: border-box;
+        }
+
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 2px solid var(--linux-orange); 
+            padding-bottom: 10px; 
+            font-size: 1.5rem; /* Scalabile */
+        }
+
+        h2 { 
+            color: var(--terminal-green); 
+            margin-top: 30px; 
+            font-size: 1.2rem;
+        }
+
+        .back { 
+            color: var(--terminal-green); 
+            text-decoration: none; 
+            border: 1px solid var(--terminal-green); 
+            padding: 5px 15px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back:hover { 
+            background: var(--terminal-green); 
+            color: black; 
+        }
+
+        .prompt { color: var(--terminal-green); }
+        .highlight { color: #ffbd2e; font-weight: bold; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        .note-box {
+            background: #222; 
+            padding: 15px; 
+            border-left: 4px solid var(--linux-orange);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* --- MEDIA QUERIES PER RESPONSIVE --- */
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            .window { padding: 40px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <a href="index.html" class="back">&lt; cd .. (Home)</a>
+        
+        <h1>LINUX INSTALL PARTY</h1>
+        
+        <p><span class="prompt">student@grassi:~$</span> man install-party</p>
+        
+        <p>L'<strong>Install Party</strong> è il cuore pratico dell'evento. Un laboratorio dedicato a chi vuole avvicinarsi al mondo del software libero e uscire dal monopolio dei sistemi proprietari.</p>
+
+        <h2>Obiettivi dell'area:</h2>
+        <ul>
+            <li><span class="highlight">Supporto Tecnico:</span> La Tech Crew aiuterà gli studenti a installare distribuzioni Linux sui propri laptop.</li>
+            <li><span class="highlight">Privacy e Sicurezza:</span> Dimostrazioni pratiche su come Linux protegge i dati degli utenti.</li>
+            <li><span class="highlight">Software Libero:</span> Presentazione di alternative open-source per lo studio e il lavoro quotidiano.</li>
+        </ul>
+
+        <div class="note-box">
+            <strong>Nota per i partecipanti:</strong> È consigliato effettuare un backup dei dati prima di partecipare alle sessioni di installazione assistita.
+        </div>
+    </div>
+</body>
+</html>

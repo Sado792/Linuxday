@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@grassi:~/main-stage</title>
+    <style>
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body { 
+            background: var(--os-bg); 
+            color: white; 
+            font-family: 'Ubuntu Mono', 'Cascadia Code', monospace; 
+            padding: 10px; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .window { 
+            background: var(--terminal-black); 
+            border: 1px solid #333; 
+            padding: 20px; 
+            width: 100%;
+            max-width: 850px; 
+            margin: 20px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            box-sizing: border-box;
+            height: fit-content;
+        }
+
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 2px solid var(--linux-orange); 
+            padding-bottom: 10px; 
+            font-size: 1.4rem; /* Dimensione adattiva per mobile */
+            word-wrap: break-word;
+        }
+
+        .back { 
+            color: var(--terminal-green); 
+            text-decoration: none; 
+            border: 1px solid var(--terminal-green); 
+            padding: 5px 12px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back:hover { 
+            background: var(--terminal-green); 
+            color: black; 
+        }
+
+        .prompt { color: var(--terminal-green); }
+
+        .time-box { 
+            background: #111; 
+            border: 1px solid #444; 
+            padding: 15px; 
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        ul { 
+            padding-left: 20px; 
+            margin-bottom: 0;
+        }
+
+        li { margin-bottom: 8px; }
+
+        p { line-height: 1.5; }
+
+        /* --- MEDIA QUERIES --- */
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            .window { padding: 40px; }
+            h1 { font-size: 2rem; }
+            .time-box { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <a href="index.html" class="back">&lt; cd .. (Home)</a>
+        
+        <h1>MAIN STAGE (AULA MAGNA)</h1>
+        
+        <p><span class="prompt">student@grassi:~$</span> cat event_agenda.md</p>
+        
+        <p>Il Main Stage ospita il programma di conferenze e talk tecnici dell'evento. È lo spazio dove la teoria incontra l'ispirazione, con relatori d'eccezione tra studenti e docenti del Grassi.</p>
+
+        <div class="time-box">
+            <p><strong>Cosa aspettarsi:</strong></p>
+            <ul>
+                <li>Seminari su Intelligenza Artificiale e Robotica.</li>
+                <li>Talk sulla storia del movimento Open Source.</li>
+                <li>Presentazione dei progetti di eccellenza del nostro Istituto.</li>
+                <li>Sessioni di Q&A interattive con il pubblico.</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.9rem; opacity: 0.8;">
+            L'accesso ai seminari è libero fino a esaurimento posti per tutte le classi registrate all'evento.
+        </p>
+    </div>
+</body>
+</html>

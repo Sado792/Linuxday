@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@grassi:~/tech-quest</title>
+    <style>
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body { 
+            background: var(--os-bg); 
+            color: white; 
+            font-family: 'Ubuntu Mono', monospace; 
+            padding: 10px; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .window { 
+            background: var(--terminal-black); 
+            border: 1px solid #333; 
+            padding: 20px; 
+            width: 100%;
+            max-width: 850px; 
+            margin: 20px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            box-sizing: border-box;
+        }
+
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 2px solid var(--linux-orange); 
+            padding-bottom: 10px; 
+            font-size: 1.4rem;
+        }
+
+        .back { 
+            color: var(--terminal-green); 
+            text-decoration: none; 
+            border: 1px solid var(--terminal-green); 
+            padding: 5px 15px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back:hover { background: var(--terminal-green); color: black; }
+        
+        .prompt { color: var(--terminal-green); }
+
+        .step { 
+            margin-bottom: 20px; 
+            border-left: 2px solid var(--terminal-green); 
+            padding-left: 15px; 
+            background: rgba(74, 246, 38, 0.05);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .step strong { color: var(--terminal-green); display: block; margin-bottom: 5px; }
+
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            .window { padding: 40px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <a href="index.html" class="back">&lt; cd .. (Home)</a>
+        <h1>TECH QUEST (GAMIFICATION)</h1>
+        <p><span class="prompt">student@grassi:~$</span> ./start_quest.sh</p>
+        
+        <p style="margin-bottom: 30px;">La Tech Quest è il sistema interattivo che trasforma la visita degli stand in un gioco di ruolo tecnologico.</p>
+
+        <div class="step">
+            <strong>1. Scansione</strong> Ogni progetto ha un QR Code univoco posizionato sullo stand.
+        </div>
+        <div class="step">
+            <strong>2. Interazione</strong> Rispondi alle domande tecniche poste dai Maker o completa le sfide degli stand.
+        </div>
+        <div class="step">
+            <strong>3. Punteggio</strong> Guadagna punti per la tua classe e scala la classifica in tempo reale sui monitor dell'Istituto.
+        </div>
+
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 30px;">
+            <span class="prompt">[INFO]:</span> L'area è coordinata dalla Tech Crew che gestisce i punteggi e garantisce il corretto funzionamento del sistema.
+        </p>
+    </div>
+</body>
+</html>

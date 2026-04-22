@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@grassi:~/perche-partecipare</title>
+    <style>
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body {
+            background-color: var(--os-bg);
+            color: white;
+            font-family: 'Ubuntu Mono', monospace;
+            margin: 0;
+            padding: 10px; /* Ridotto per mobile */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .window {
+            background: var(--terminal-black);
+            width: 100%; /* Occupa tutto lo spazio su mobile */
+            max-width: 800px;
+            margin-top: 20px; /* Margine ridotto rispetto ai 50px originali */
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+
+        .window-header {
+            background: #333;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .dots { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .window-title {
+            margin-left: 20px; 
+            font-size: 13px; 
+            color: #ccc;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .content { 
+            padding: 20px; /* Ridotto per mobile */
+            line-height: 1.5; 
+        }
+        
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 1px solid var(--linux-orange); 
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+        }
+        
+        .back-link {
+            color: var(--terminal-green);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid var(--terminal-green);
+            padding: 5px 15px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { background: var(--terminal-green); color: black; }
+        
+        .prompt { color: var(--terminal-green); }
+        
+        .motivation-box {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-left: 3px solid var(--linux-orange);
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+
+        .passion-text {
+            color: var(--terminal-green);
+            font-style: italic;
+            background: rgba(74, 246, 38, 0.05);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        /* Desktop Adjustments */
+        @media (min-width: 768px) {
+            body { padding: 40px 20px; }
+            .window { width: 90%; margin-top: 0; }
+            .content { padding: 40px; }
+            h1 { font-size: 2rem; }
+            .motivation-box { font-size: 1.1em; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="window-header">
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="window-title">bash — why_join.sh</div>
+        </div>
+        
+        <div class="content">
+            <a href="index.html" class="back-link">< cd .. (Home)</a>
+            
+            <p><span class="prompt">student@grassi:~$</span> cat motivation.txt</p>
+            
+            <h1>PERCHÉ PARTECIPARE?</h1>
+            
+            <div class="motivation-box">
+                Il <strong>Grassi Linux Tech Day</strong> è un evento fondamentale per approfondire e comprendere meglio gli argomenti tecnici che studiamo ogni giorno. Non è solo teoria: è il momento in cui le idee diventano realtà.
+            </div>
+
+            <p>
+                Partecipare significa mettersi in gioco come protagonisti, fare rete tra classi diverse e valorizzare le competenze di tutte le nostre specializzazioni: <strong>Aeronautica, Elettronica, Informatica e Meccatronica</strong>.
+            </p>
+
+            <p class="passion-text">
+                "Per chi non conosce ancora il mondo Open Source, questa è l'occasione perfetta per scoprire una nuova passione rendendo il tutto più coinvolgente."
+            </p>
+
+            <p>
+                Che tu voglia presentare un progetto come <strong>Maker</strong> o supportare l'evento nella <strong>Tech Crew</strong>, questa giornata ti permetterà di scoprire orizzonti tecnologici a 360 gradi in modo interattivo.
+            </p>
+
+            <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9rem;">[STATUS]: Ispirazione caricata con successo.</p>
+        </div>
+    </div>
+
+</body>
+</html>

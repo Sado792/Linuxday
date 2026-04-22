@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@grassi:~/showcase</title>
+    <style>
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body { 
+            background: var(--os-bg); 
+            color: white; 
+            font-family: 'Ubuntu Mono', 'Cascadia Code', monospace; 
+            padding: 10px; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .window { 
+            background: var(--terminal-black); 
+            border: 1px solid #333; 
+            padding: 20px; 
+            width: 100%;
+            max-width: 850px; 
+            margin: 20px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            box-sizing: border-box;
+        }
+
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 2px solid var(--linux-orange); 
+            padding-bottom: 10px; 
+            font-size: 1.4rem;
+            word-wrap: break-word;
+        }
+
+        h3 { color: var(--terminal-green); margin-top: 25px; }
+
+        .back { 
+            color: var(--terminal-green); 
+            text-decoration: none; 
+            border: 1px solid var(--terminal-green); 
+            padding: 5px 15px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back:hover { background: var(--terminal-green); color: black; }
+        
+        .prompt { color: var(--terminal-green); }
+        
+        ul { padding-left: 20px; line-height: 1.6; }
+        li { margin-bottom: 10px; }
+        strong { color: var(--linux-orange); }
+
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            .window { padding: 40px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <a href="index.html" class="back">&lt; cd .. (Home)</a>
+        <h1>TECH SHOWCASE (AREA STAND)</h1>
+        <p><span class="prompt">student@grassi:~$</span> grep "Maker" call_for_makers.txt</p>
+        
+        <p>L'area espositiva è il cuore del "saper fare". Gli studenti presentano i propri progetti tecnologici divisi per specializzazione.</p>
+
+        <h3>Categorie di Progetto:</h3>
+        <ul>
+            <li><strong>Aeronautica:</strong> Sistemi di volo, droni e aerodinamica.</li>
+            <li><strong>Elettronica:</strong> Circuiti stampati, Arduino, domotica.</li>
+            <li><strong>Informatica:</strong> Web App, Cybersecurity, Programmazione.</li>
+            <li><strong>Meccatronica:</strong> Robotica, automazione industriale.</li>
+        </ul>
+
+        <p style="margin-top: 25px; border-top: 1px solid #333; padding-top: 15px; font-style: italic; opacity: 0.8;">
+            Ogni stand si concentra su un concetto chiave spiegato attraverso una dimostrazione pratica chiara e ripetibile.
+        </p>
+    </div>
+</body>
+</html>
