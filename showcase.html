@@ -2,56 +2,115 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>root@grassi:~/showcase</title>
     <style>
-        :root { --os-bg: #1a0a1a; --terminal-green: #4af626; --terminal-black: #0c0c0c; --linux-orange: #e95420; }
-        body { background: var(--os-bg); color: white; font-family: 'Ubuntu Mono', monospace; padding: 20px; }
-        .window { background: var(--terminal-black); border: 1px solid #333; padding: 30px; max-width: 900px; margin: auto; }
-        h1 { color: var(--linux-orange); border-bottom: 2px solid var(--linux-orange); }
-        .back { color: var(--terminal-green); text-decoration: none; border: 1px solid var(--terminal-green); padding: 5px 10px; display: inline-block; margin-bottom: 20px; }
+        :root {
+            --os-bg: #1a0a1a; 
+            --terminal-green: #4af626;
+            --terminal-black: #0c0c0c;
+            --linux-orange: #e95420;
+        }
+
+        body { 
+            background: var(--os-bg); 
+            color: white; 
+            font-family: 'Ubuntu Mono', 'Cascadia Code', monospace; 
+            padding: 10px; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .window { 
+            background: var(--terminal-black); 
+            border: 1px solid #333; 
+            padding: 20px; 
+            width: 100%;
+            max-width: 850px; 
+            margin: 20px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            box-sizing: border-box;
+            height: fit-content;
+        }
+
+        h1 { 
+            color: var(--linux-orange); 
+            border-bottom: 2px solid var(--linux-orange); 
+            padding-bottom: 10px; 
+            font-size: 1.4rem;
+            word-wrap: break-word;
+        }
+
+        h3 { color: var(--terminal-green); margin-top: 25px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+
+        .back { 
+            color: var(--terminal-green); 
+            text-decoration: none; 
+            border: 1px solid var(--terminal-green); 
+            padding: 5px 15px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back:hover { background: var(--terminal-green); color: black; }
         
-        .stand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .stand-card { border: 1px solid var(--terminal-green); padding: 20px; background: rgba(74, 246, 38, 0.02); }
-        .stand-card h3 { color: var(--linux-orange); margin-top: 0; }
-        .stand-card p { font-size: 0.9rem; line-height: 1.4; }
-        .category { font-size: 0.8rem; color: var(--terminal-green); border: 1px solid var(--terminal-green); padding: 2px 5px; }
+        .prompt { color: var(--terminal-green); }
+        
+        ul { padding-left: 20px; line-height: 1.6; list-style-type: none; }
+        li { margin-bottom: 8px; }
+        .code { color: var(--linux-orange); font-weight: bold; margin-right: 10px; }
+
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            .window { padding: 40px; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
     <div class="window">
-        <a href="index.html" class="back">< cd .. (Home)</a>
-        <h1>TECH SHOWCASE (AREA STAND)</h1>
-        <p>Esplora i progetti realizzati dagli studenti. Ogni stand offre una dimostrazione pratica e interattiva.</p>
+        <a href="index.html" class="back">&lt; cd .. (Home)</a>
+        <h1>TECH SHOWCASE (ELENCO STAND)</h1>
+        <p><span class="prompt">student@grassi:~$</span> cat disposizione_stand_v2.csv</p>
+        
+        <h3>AREA A (Aula 136) - Linux & AI</h3>
+        <ul>
+            <li><span class="code">A1</span> Linux Live</li>
+            <li><span class="code">A2</span> Scripting Linux e automazione</li>
+            <li><span class="code">A3</span> The Final Code</li>
+            <li><span class="code">A4</span> Tecnologia e diritto - Il piè veloce Achille</li>
+            <li><span class="code">A5</span> Video editing open source</li>
+            <li><span class="code">A6</span> Come raccontiamo l'IA</li>
+            <li><span class="code">A7</span> Kora</li>
+        </ul>
 
-        <div class="stand-grid">
-            <div class="stand-card">
-                <span class="category">Informatica / Elettronica</span>
-                <h3>ToVibes</h3>
-                <p>Analisi delle vibrazioni e del suono tramite sistemi Linux-based per applicazioni musicali o industriali.</p>
-                
-            </div>
+        <h3>AREA B (Aula 138) - Hardware & IoT</h3>
+        <ul>
+            <li><span class="code">B1</span> PC per tutti</li>
+            <li><span class="code">B2</span> Eco Cyber Deck</li>
+            <li><span class="code">B3</span> Bit-Repair: La magia della rete invisibile</li>
+            <li><span class="code">B4</span> IoT e monitoraggio sensori</li>
+            <li><span class="code">B5</span> GreenPlay</li>
+            <li><span class="code">B6</span> Mono-pòlis</li>
+            <li><span class="code">B7</span> Galleria del vento</li>
+            <li><span class="code">B8</span> ToVibes</li>
+            <li><span class="code">B9</span> Smart Park</li>
+        </ul>
 
-            <div class="stand-card">
-                <span class="category">Meccatronica</span>
-                <h3>Eco Cyberdeck</h3>
-                <p>Computer portatile modulare costruito con materiali riciclati e alimentato da sistemi operativi leggeri.</p>
-                
-            </div>
+        <h3>AREA C (Lab. i34) - Robotica & STEAM</h3>
+        <ul>
+            <li><span class="code">C1</span> Braccio robotico e automazione</li>
+            <li><span class="code">C2</span> Simulatore di volo</li>
+            <li><span class="code">C3</span> Progetti STEAM e Maker</li>
+        </ul>
 
-            <div class="stand-card" style="opacity: 0.6; border-style: dashed;">
-                <span class="category">Aeronautica</span>
-                <h3>Progetto Aeronautico 1</h3>
-                <p>Dettagli del progetto in fase di caricamento...</p>
-                <p><strong>[ IN AGGIORNAMENTO ]</strong></p>
-            </div>
-
-            <div class="stand-card" style="opacity: 0.6; border-style: dashed;">
-                <span class="category">Elettronica</span>
-                <h3>Progetto Elettronica 2</h3>
-                <p>Dettagli del progetto in fase di caricamento...</p>
-                <p><strong>[ IN AGGIORNAMENTO ]</strong></p>
-            </div>
-        </div>
+        <p style="margin-top: 25px; border-top: 1px solid #333; padding-top: 15px; font-style: italic; opacity: 0.8;">
+            <span class="prompt">info:</span> Consulta la mappa per localizzare i codici degli stand.
+        </p>
     </div>
 </body>
 </html>
