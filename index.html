@@ -6,6 +6,7 @@
     <title>root@grassi-linux-tech-day:~# Presentation_Mode</title>
     <style>
         :root {
+            /* RIPRISTINATO: Sfondo viola scuro originale */
             --os-bg: #1a0a1a; 
             --terminal-green: #4af626;
             --terminal-black: #0c0c0c;
@@ -16,39 +17,58 @@
 
         body {
             background-color: var(--os-bg);
-            color: white;
+            color: #ffffff; /* Testo base bianco */
             font-family: 'Ubuntu Mono', monospace;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            padding-top: 50px;
+            padding-bottom: 80px; 
         }
 
+        /* --- BARRA IN ALTO --- */
         .top-bar {
             background: #000;
-            height: 30px;
+            height: 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 15px;
-            font-size: 12px; /* Ridotto leggermente per mobile */
+            font-size: 11px;
             border-bottom: 1px solid #333;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 10000;
+            color: #ffffff;
         }
 
+        /* --- BARRA IN BASSO (CON INDIRIZZO BIANCO) --- */
+        footer {
+            background: #000;
+            padding: 10px 15px;
+            color: #ffffff; 
+            border-top: 1px solid var(--linux-orange);
+            text-align: center;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        /* --- FINESTRA TERMINALE --- */
         .window {
             background: var(--terminal-black);
-            width: 95%; /* Più larga su mobile */
+            width: 95%;
             max-width: 1000px;
-            margin: 50px auto 20px auto;
+            margin: 20px auto;
             border-radius: 8px 8px 0 0;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
             border: 1px solid #333;
             position: relative;
-            overflow: hidden;
         }
 
         .window-header {
@@ -59,14 +79,9 @@
             align-items: center;
         }
 
-        .dots { display: flex; gap: 8px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-        .window-title { margin-left: 15px; font-size: 11px; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .window-title { margin-left: 15px; font-size: 11px; color: #ffffff; }
 
-        .window-content { padding: 20px; padding-bottom: 100px; } /* Padding ridotto per mobile */
+        .window-content { padding: 30px; padding-bottom: 50px; color: #ffffff; }
 
         .intro-text {
             border-left: 3px solid var(--linux-orange);
@@ -74,121 +89,103 @@
             margin: 15px 0;
         }
 
-        h1 { font-size: 1.5rem; margin-bottom: 10px; }
+        .intro-text p { color: #ffffff; }
 
-        /* --- STILE NOTIFICA ERRORE RESPONSIVE --- */
-        .system-notification {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            left: 15px; /* Prende quasi tutta la larghezza su mobile */
-            max-width: 350px;
-            background: rgba(255, 95, 86, 0.15);
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--error-red);
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            transform: translateY(150%); /* Parte dal basso fuori schermo */
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            margin-left: auto; /* Allinea a destra se c'è spazio */
-        }
+        h1 { font-size: 1.8rem; margin-bottom: 10px; color: var(--linux-orange); }
 
-        .system-notification.show {
-            transform: translateY(0);
-        }
-
-        .error-icon {
-            background: var(--error-red);
-            color: white;
-            font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
-
-        .error-text { font-size: 12px; line-height: 1.3; }
-
-        /* --- GRIGLIA RESPONSIVE --- */
         .blueprint-art {
             display: grid;
-            grid-template-areas: 
-                "code" 
-                "wing" 
-                "chip" 
-                "sensor"; /* Una colonna di default per mobile */
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 30px;
         }
 
-        @media (min-width: 768px) {
-            .blueprint-art {
-                grid-template-areas: 
-                    "code wing" 
-                    "chip sensor"; /* Due colonne per tablet e desktop */
-                gap: 20px;
-            }
-            .window-content { padding: 40px; padding-bottom: 80px; }
-            .window { width: 90%; margin-top: 70px; }
-            h1 { font-size: 2rem; }
-        }
-
+        /* --- PULSANTI (TESTI BIANCHI) --- */
         .component {
             border: 1px solid var(--terminal-green);
             padding: 30px 15px;
             text-align: center;
             background: rgba(74, 246, 38, 0.03);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
+            color: #ffffff !important; 
+            text-decoration: none;
+            display: block;
         }
 
-        .component.visible { opacity: 1; transform: translateY(0); }
+        .component strong { color: #ffffff; }
 
-        /* Disabilita i popup hover su mobile (usa il click/tap) */
-        @media (hover: hover) {
-            .component:hover { background: rgba(74, 246, 38, 0.1); border: 1px solid white; }
-            .glitch-popup {
-                position: absolute;
-                background: var(--linux-orange);
-                color: white;
-                padding: 10px;
-                font-size: 11px;
-                display: none;
-                z-index: 5;
-                width: 220px;
-                text-align: left;
-                bottom: 105%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .component:hover .glitch-popup { display: block; }
+        .component:hover { 
+            background: rgba(74, 246, 38, 0.1); 
+            border-color: #ffffff; 
         }
 
-        .prompt { color: var(--terminal-green); }
-        a { text-decoration: none; color: inherit; }
+        .glitch-popup {
+            position: absolute;
+            background: var(--linux-orange);
+            color: white;
+            padding: 10px;
+            font-size: 11px;
+            display: none;
+            z-index: 5;
+            width: 200px;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-        footer {
-            background: #000;
-            padding: 30px 15px;
-            color: var(--text-gray);
-            border-top: 1px solid var(--linux-orange);
+        .component:hover .glitch-popup { display: block; }
+
+        .partnership-box {
+            margin-top: 40px;
+            padding: 15px;
+            border: 1px dashed #ffffff;
+            font-size: 0.9rem;
             text-align: center;
-            font-size: 13px;
+            color: #ffffff;
         }
+
+        /* --- POPUP NOTIFICA (SOPRA IL FOOTER) --- */
+        .system-notification {
+            position: fixed;
+            bottom: 70px;
+            right: -400px; 
+            background: #1e1e1e;
+            border-left: 5px solid var(--error-red);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+            cursor: pointer;
+            text-decoration: none;
+            color: #ffffff;
+            width: 320px;
+        }
+
+        .system-notification.show {
+            right: 20px; 
+        }
+
+        .error-text { font-size: 13px; line-height: 1.4; color: #ffffff; }
+
+        .dots { display: flex; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <span>Attività</span>
-        <span>22 Maggio 2026</span>
         <span>[ ITTS CARLO GRASSI ]</span>
+        <span>22 Maggio 2026 | 08:30 - 14:00</span>
+        <span>PARTNER: <a href="https://linuxdaytorino.org/" target="_blank" style="color:white">LINUX DAY TORINO</a></span>
     </div>
 
     <div class="window">
@@ -200,67 +197,50 @@
         <div class="window-content">
             <div class="intro-text">
                 <h1>GRASSI LINUX TECH DAY 2026</h1>
-                <p>Valorizzare le competenze di tutte le nostre specializzazioni (Aeronautica, Elettronica, Informatica, Meccatronica) attraverso l'Open Source.</p>
+                <p>Valorizzare le competenze di Aeronautica, Elettronica, Informatica e Meccatronica attraverso l'Open Source.</p>
             </div>
 
-            <p><span class="prompt">student@grassi:~$</span> ls -F ./aree_evento/</p>
-            
             <div class="blueprint-art">
-                <a href="install-party.html" style="grid-area: code;">
-                    <div class="component" data-delay="0">
-                        <strong>[ LINUX_INSTALL_PARTY ]</strong>
-                        <div class="glitch-popup">Laboratorio pratico per installare Linux.</div>
-                    </div>
+                <a href="install-party.html" class="component">
+                    <strong>[ INSTALL_PARTY ]</strong>
+                    <div class="glitch-popup">Porta il tuo laptop e installiamo Linux!</div>
                 </a>
 
-                <a href="main-stage.html" style="grid-area: wing;">
-                    <div class="component" data-delay="100">
-                        <strong>[ MAIN_STAGE ]</strong>
-                        <div class="glitch-popup">Seminari e talk in Aula Magna.</div>
-                    </div>
+                <a href="main-stage.html" class="component">
+                    <strong>[ MAIN_STAGE ]</strong>
+                    <div class="glitch-popup">Programma talk e seminari in Aula Magna.</div>
                 </a>
 
-                <a href="showcase.html" style="grid-area: chip;">
-                    <div class="component" data-delay="200">
-                        <strong>[ TECH_SHOWCASE ]</strong>
-                        <div class="glitch-popup">Esposizione progetti: Call for Makers.</div>
-                    </div>
+                <a href="showcase.html" class="component">
+                    <strong>[ TECH_SHOWCASE ]</strong>
+                    <div class="glitch-popup">Area Stand: Maker e Progetti Studenti.</div>
                 </a>
 
-                <a href="tech-quest.html" style="grid-area: sensor;">
-                    <div class="component" data-delay="300">
-                        <strong>[ TECH_QUEST ]</strong>
-                        <div class="glitch-popup">Gamification interattiva con QR code.</div>
-                    </div>
+                <a href="tech-quest.html" class="component">
+                    <strong>[ TECH_QUEST ]</strong>
+                    <div class="glitch-popup">Gioca con i QR code e scala la classifica.</div>
                 </a>
+            </div>
+
+            <div class="partnership-box">
+                In collaborazione con <a href="https://linuxdaytorino.org/" target="_blank" style="color: var(--terminal-green);">Linux Day Torino Community</a>. 
             </div>
         </div>
-
-        <a href="perche-partecipare.html">
-            <div class="system-notification" id="error-pop">
-                <div class="error-icon">[!]</div>
-                <div class="error-text">
-                    <strong>SISTEMA:</strong> Passione non rilevata.<br>
-                    Eseguire <span style="text-decoration: underline;">perche-partecipare.sh</span>
-                </div>
-            </div>
-        </a>
     </div>
 
+    <a href="perche-partecipare.html" id="error-pop" class="system-notification">
+        <div class="error-icon" style="color: var(--error-red); font-weight: bold; font-size: 20px;">[!]</div>
+        <div class="error-text">
+            <strong>SISTEMA:</strong> Passione non rilevata.<br>
+            Eseguire <span style="text-decoration: underline; color: var(--terminal-green);">perche-partecipare.sh</span>
+        </div>
+    </a>
+
     <footer>
-        <p>ITTS Carlo Grassi - Torino.<br>1° Edizione "Grassi Linux Tech Day" - 22 maggio 2026.</p>
+        <p>ITTS Carlo Grassi - Via Cigna 230, Torino | 1° Edizione "Grassi Linux Tech Day"</p>
     </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay);
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.component').forEach(c => observer.observe(c));
-
         window.onload = () => {
             setTimeout(() => {
                 document.getElementById('error-pop').classList.add('show');
