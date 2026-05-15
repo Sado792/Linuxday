@@ -20,7 +20,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            min-height: 100vh;
+            align-items: flex-start;
         }
 
         .window { 
@@ -65,15 +65,15 @@
             font-size: 0.95rem;
         }
 
-        ul { padding-left: 20px; margin-bottom: 0; }
-        li { margin-bottom: 8px; }
-        p { line-height: 1.5; }
+        ul { padding-left: 20px; margin-bottom: 0; list-style-type: none; }
+        li { margin-bottom: 12px; border-left: 2px solid #333; padding-left: 10px; }
+        .time { color: var(--linux-orange); font-weight: bold; margin-right: 10px; }
+        .speaker { color: var(--terminal-green); }
 
         @media (min-width: 600px) {
             body { padding: 40px 20px; }
             .window { padding: 40px; }
             h1 { font-size: 2rem; }
-            .time-box { padding: 20px; }
         }
     </style>
 </head>
@@ -83,23 +83,23 @@
         
         <h1>MAIN STAGE (AUDITORIUM)</h1>
         
-        <p><span class="prompt">student@grassi:~$</span> cat event_agenda.md</p>
+        <p><span class="prompt">student@grassi:~$</span> cat agenda_talks.log</p>
         
-        <p>Presso l'auditorium si terranno speech e seminari divulgativi tenuti da studenti, docenti ed esperti del settore su innovazione e cittadinanza digitale.</p>
+        <p>Programma dei seminari e degli speech tecnici previsti in auditorium per il Grassi Linux Tech Day:</p>
 
         <div class="time-box">
-            <p><strong>Aree Tematiche:</strong></p>
             <ul>
-                <li>Linux e Open Source </li>
-                <li>Intelligenza Artificiale </li>
-                <li>Reti e Telecomunicazioni </li>
-                <li>Etica e Cittadinanza Digitale </li>
-                <li>Professioni Tecnologiche </li>
+                <li><span class="time">09:20</span> <span class="speaker">Giulio Sciarappa:</span> Speech su Intelligenza Artificiale</li>
+                <li><span class="time">09:50</span> <span class="speaker">Sampugnaro:</span> "L'IA può essere creativa?"</li>
+                <li><span class="time">10:10</span> <span class="speaker">Mauro:</span> Progettazione e modellazione</li>
+                <li><span class="time">11:10</span> <span class="speaker">Patisso:</span> "Metodi per proteggersi online (o sedicenti tali)"</li>
+                <li><span class="time">TBD</span> <span class="speaker">Trivella:</span> "La personalizzazione in Linux"</li>
+                <li><span class="time">TBD</span> <span class="speaker">Biondo:</span> "Art, History, Design and Innovation"</li>
             </ul>
         </div>
 
         <p style="font-size: 0.9rem; opacity: 0.8; border-top: 1px solid #333; padding-top: 15px;">
-            <strong>NOTA:</strong> Gli studenti devono iscriversi individualmente tramite il modulo prenotazione talk. La scaletta completa è disponibile su: techday.itisgrassi.it
+            <span class="prompt">notice:</span> Gli orari contrassegnati come TBD verranno aggiornati a breve. La prenotazione individuale è obbligatoria.
         </p>
     </div>
 </body>
