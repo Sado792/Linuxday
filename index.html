@@ -86,21 +86,38 @@
         .intro-text {
             border-left: 3px solid var(--linux-orange);
             padding-left: 15px;
-            margin: 15px 0;
+            margin: 15px 0 25px 0;
         }
 
         .intro-text p { color: #ffffff; }
 
         h1 { font-size: 1.8rem; margin-bottom: 10px; color: var(--linux-orange); }
 
+        /* --- SCRITTA INVITO AL PROGRAMMA --- */
+        .cta-programma {
+            font-size: 1.4rem;
+            color: var(--linux-orange);
+            text-align: center;
+            margin: 30px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            animation: cta-blink 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes cta-blink {
+            0% { opacity: 0.4; text-shadow: 0 0 2px rgba(233, 84, 32, 0.2); }
+            100% { opacity: 1; text-shadow: 0 0 10px rgba(233, 84, 32, 0.6); }
+        }
+
         .blueprint-art {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 15px;
         }
 
-        /* --- PULSANTI (TESTI BIANCHI) --- */
+        /* --- PULSANTI BASE (TESTI BIANCHI) --- */
         .component {
             border: 1px solid var(--terminal-green);
             padding: 30px 15px;
@@ -119,6 +136,29 @@
         .component:hover { 
             background: rgba(74, 246, 38, 0.1); 
             border-color: #ffffff; 
+        }
+
+        /* --- ANIMAZIONE DI PULSAZIONE VERDE PER MAIN E SHOWCASE --- */
+        #main-stage-btn, #showcase-btn {
+            background: rgba(74, 246, 38, 0.08);
+            animation: pulse-green 2s infinite alternate ease-in-out;
+        }
+
+        #main-stage-btn:hover, #showcase-btn:hover {
+            background: rgba(74, 246, 38, 0.25);
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(74, 246, 38, 0.6);
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 4px rgba(74, 246, 38, 0.2);
+                border-color: rgba(74, 246, 38, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 15px rgba(74, 246, 38, 0.5);
+                border-color: rgba(74, 246, 38, 1);
+            }
         }
 
         .glitch-popup {
@@ -185,7 +225,6 @@
     <div class="top-bar">
         <span>[ ITTS CARLO GRASSI ]</span>
         <span>22 Maggio 2026 | 08:30 - 14:00</span>
-       
     </div>
 
     <div class="window">
@@ -200,18 +239,20 @@
                 <p>Valorizzare le competenze di Aeronautica, Elettronica, Informatica e Meccatronica attraverso l'Open Source.</p>
             </div>
 
+            <h2 class="cta-programma">--- SCEGLI UN'AREA E SCOPRI IL PROGRAMMA ---</h2>
+
             <div class="blueprint-art">
                 <a href="install-party.html" class="component">
                     <strong>[ INSTALL_PARTY ]</strong>
                     <div class="glitch-popup">Porta il tuo laptop e installiamo Linux!</div>
                 </a>
 
-                <a href="main-stage.html" class="component">
+                <a href="main-stage.html" class="component" id="main-stage-btn">
                     <strong>[ MAIN_STAGE ]</strong>
                     <div class="glitch-popup">Programma talk e seminari in Aula Magna.</div>
                 </a>
 
-                <a href="showcase.html" class="component">
+                <a href="showcase.html" class="component" id="showcase-btn">
                     <strong>[ TECH_SHOWCASE ]</strong>
                     <div class="glitch-popup">Area Stand: Maker e Progetti Studenti.</div>
                 </a>
@@ -223,7 +264,7 @@
             </div>
 
             <div class="partnership-box">
-                In collaborazione con <a href="https://linuxdaytorino.org/" target="_blank" style="color: var(--terminal-green);">Linux Day Torino Community</a>. 
+                Non perdere i talk esclusivi in Aula Magna e i progetti dei maker: clicca su <span style="color: var(--linux-orange); font-weight: bold;">[ MAIN_STAGE ]</span> e <span style="color: var(--linux-orange); font-weight: bold;">[ TECH_SHOWCASE ]</span> per scoprire il programma!
             </div>
         </div>
     </div>
