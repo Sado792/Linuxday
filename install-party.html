@@ -70,12 +70,34 @@
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
 
+        /* --- BLOCCO LOGISTICA (ORARIO E AULA) --- */
+        .sys-info-box {
+            background: rgba(74, 246, 38, 0.05);
+            border: 1px dashed var(--terminal-green);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+        .sys-info-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .sys-info-box td {
+            padding: 5px 10px;
+        }
+        .sys-info-box td:first-child {
+            width: 140px;
+            font-weight: bold;
+            color: var(--linux-orange);
+        }
+
         .note-box {
             background: #222; 
             padding: 15px; 
             border-left: 4px solid var(--linux-orange);
             font-size: 0.9rem;
             line-height: 1.4;
+            margin-top: 30px;
         }
 
         @media (min-width: 600px) {
@@ -94,17 +116,34 @@
         
         <p><span class="prompt">student@grassi:~$</span> man install-party</p>
         
-        <p>L'<strong>Install Party</strong> è il cuore pratico dell'evento. Un laboratorio dedicato a chi vuole avvicinarsi al mondo del software libero e uscire dal monopolio dei sistemi proprietari.</p>
+        <p>L'<strong>Install Party</strong> è il cuore pratico dell'evento. Un laboratorio interattivo dedicato a chi vuole dare una seconda vita al proprio PC, avvicinarsi al mondo del software libero e uscire definitivamente dal monopolio dei sistemi proprietari.</p>
+
+        <div class="sys-info-box">
+            <table>
+                <tr>
+                    <td>[ORARIO]:</td>
+                    <td>Dalle <span class="highlight">10:00</span> alle <span class="highlight">12:00</span> – Non arrivare tardi!</td>
+                </tr>
+                <tr>
+                    <td>[UBICAZIONE]:</td>
+                    <td><span class="highlight">Aula I38</span> (Laboratorio di Informatica)</td>
+                </tr>
+                <tr>
+                    <td>[TARGET]:</td>
+                    <td>Porta il tuo laptop, al resto ci pensiamo noi.</td>
+                </tr>
+            </table>
+        </div>
 
         <h2>Obiettivi dell'area:</h2>
         <ul>
-            <li><span class="highlight">Supporto Tecnico:</span> La Tech Crew aiuterà gli studenti a installare distribuzioni Linux sui propri laptop.</li>
-            <li><span class="highlight">Privacy e Sicurezza:</span> Dimostrazioni pratiche su come Linux protegge i dati degli utenti.</li>
-            <li><span class="highlight">Software Libero:</span> Presentazione di alternative open-source per lo studio e il lavoro quotidiano.</li>
+            <li><span class="highlight">Supporto Tecnico Diretto:</span> La nostra Tech Crew ti guiderà passo dopo passo nell'installazione e nella configurazione della tua nuova distribuzione Linux sul tuo computer.</li>
+            <li><span class="highlight">Privacy e Sicurezza sotto controllo:</span> Dimostrazioni pratiche e test live per vedere con i tuoi occhi come Linux protegge l'identità e i dati degli utenti.</li>
+            <li><span class="highlight">Alternativa Open Source:</span> Scopri gli strumenti liberi e gratuiti più potenti per lo studio, la programmazione, la grafica e il lavoro quotidiano.</li>
         </ul>
 
         <div class="note-box">
-            <strong>Nota per i partecipanti:</strong> È consigliato effettuare un backup dei dati prima di partecipare alle sessioni di installazione assistita.
+            <strong>Nota di sicurezza per i partecipanti:</strong> Prima di sederti al banco di installazione, assicurati di aver effettuato un backup completo dei tuoi dati importanti (documenti, foto, progetti scolastici). La prudenza è la prima regola del vero sysadmin!
         </div>
     </div>
 </body>
