@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Algobuild
+Comment=Versione (0.85)
+Exec=java  -jar /opt/algobuild/AlgoBuild085.jar
+Icon=/opt/algobuild/algobuild.png
+Terminal=true
+Type=Application
+Categories=Development;
+StartupNotify=true
+NoDisplay=true
